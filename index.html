@@ -2,50 +2,61 @@
 <html>
 <head>
 	<title>GitHub Pages Site</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<nav> 
-	<a href="index.html">Home</a>
-	<a href="additional.html">Additional</a>
-</nav>
 
-<div>
+<header>
 	<h1>AYA-PHANT</h1>
-	<p>Aya The Elephant</p>
-</div>
+	<p class="tagline">Aya The Elephant<p>
+	<nav class="navbar"> 
+		<a href="index.html">Home</a>
+		<a href="additional.html">Additional</a>
+	</nav>
+</header>
 
-<img src="./images/ayaphant.JPG" alt="Aya_Elephant_Costume"/>
+<main>
+	<div>
+		<img src="./images/ayaphant.JPG" alt="Aya_Elephant_Costume"/>
+	</div>
 
-<fieldset>
+	<div id="elephantform">
+		<form name="echoice" action="https://httpbin.org/post" method="post">
+			<label>Select Aya's Favorite Animal:</label>
+  				<select name="animal">
+    				<option value=“elephant”>Elephant 1</option>
+    				<option value=“elephant”>Elephant 2</option>
+    				<option value=“elephant”>Elephant 3</option>
+  				</select>
+			<button type="submit">Submit</button>
+		</form>
+	</div>
 
-<form name="animalchoice" action="/additional.html" method="post">
-	<label>Select Aya's Favorite Animal:</label>
-  		<select name="animal">
-    		<option value=“elephant”>Elephant 1</option>
-    		<option value=“elephant”>Elephant 2</option>
-    		<option value=“elephant”>Elephant 3</option>
-  		</select>
-	<button type="submit">Submit</button>
-</form>
-</fieldset>
+	<aside>
+		<ol>
+			<li>Aya</li>
+			<li>Gabriela</li>
+			<li>Francisco</li>
+			<li>Menchavez</li>
+		</ol>
+	</aside>
 
-<aside>
-<div>
-<ol>
-	<li>Aya</li>
-	<li>Gabriela</li>
-	<li>Francisco</li>
-	<li>Menchavez</li>
-</ol>
-</div>
-</aside>
+	<div class="backimg">
+		<p>
+			Go to an additional Page: <a href="additional.html">Click Here</a>
+		</p>
+	</div>
 
+	<div>
+		<p>
+			Checkout this <a href="http://www.nytimes.com/">site</a> with much better use of CSS, external scripts, meta tags, and naming conventions! =)
+		</p>
+	</div>
+</main>
 
 <footer>
-	<p>Go to an additional Page: <a href="additional.html">Click Here</a></p>
-	<p>Checkout this <a href="http://www.nytimes.com/">site</a> with much better use of CSS, external scripts, meta tags, and naming conventions! =)</p>
+	&copy; 2016 rdfm
 </footer>
-
 
 </body>
 </html>
