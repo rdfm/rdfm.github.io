@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS: Shape - Heart</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<style>
+	.heart {
+		position: relative;
+		background-color: red;
+		height: 50px;
+		width: 50px;
+		top: 25px;
+		margin: auto;
+		transform: rotate(-45deg);
+	}
+
+	.heart::after {
+		position: absolute;
+		background-color: red;
+		content: "";
+		border-radius: 50%;
+		height: 50px;
+		width: 50px;
+		top: 0px;
+		left: 25px;
+	}
+
+	.heart::before {
+		position: absolute;
+		background-color: red;
+		content: "";
+		border-radius: 50%;
+		height: 50px;
+		width: 50px;
+		top: -25px;
+		left: 0px;
+	}
+	</style>
+</head>
+<body>
+<div class="heart"></div>
+</body>
+</html>
