@@ -11,9 +11,12 @@
 		body, html {
 			height: 100%;
 			margin: 0;
+			font-family: Lato, Arial, sans-serif;
 		}
 
 		.bg {
+			position: relative;
+
 		    /* The image used */
 		    background-image: url("images/background.jpg");
 
@@ -24,11 +27,34 @@
 		    background-position: center;
 		    background-repeat: no-repeat;
 		    background-size: cover;
-		}		
+		}	
+
+		.caption {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+		}
+
+		.caption span.border {
+			background-color: #333;
+			color: #FFF;
+			padding: 5px;
+			font-size: 20px;
+			letter-spacing: 10px;
+			text-transform: uppercase;
+		}
 	</style>
 </head>
 <body>
-	<div class="bg"></div>
+	<div class="bg">
+		<div class="caption">
+			<span class="border">Full Page</span>
+			<br>
+			<span class="border">Background Image</span>
+		</div>
+	</div>
 
 	<p>Full Page</p>
 </body>
