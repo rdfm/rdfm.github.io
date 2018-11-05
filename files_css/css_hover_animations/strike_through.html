@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS: Hover Animation - Strike Through</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<style type="text/css">
+		body {
+			background: #222;
+			display: flex;
+			justify-content: center;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 50px 0;
+		}
+
+		/*li {
+			display: inline-block;
+			padding: 0 20px;
+		}*/
+
+		a {
+			position: relative;
+			text-decoration: none;
+			font-family: Helvetica, Arial, sans-serif;
+			color: #FFF;
+			font-size: 48px;
+			text-transform: uppercase;
+		}
+
+		a::before, a::after {
+			content: '';
+			background: #ccff00;
+			position: absolute;
+			top: 35%;
+			height: 8px;
+			width: 0;
+		}
+
+		a::before {
+			left: 0;
+		}
+		a::after {
+			left: 0;
+			/* right: 0; Use right, to animate out right side */ 
+			transition: width 600ms ease;
+		}
+		a:hover::before {
+			width: 100%;
+			transition: width 600ms ease;
+		}
+		a:hover::after {
+			width: 100%;
+			background: transparent;
+			transition: 0;
+		}
+	</style>
+</head>
+<body>
+<!-- Reference: https://codepen.io/clarewhatever/pen/JXOQxK -->
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Blog</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+</body>
+</html>
