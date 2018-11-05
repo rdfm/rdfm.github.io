@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>How-To's: Responsive Header</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		header {
+			background: #222;
+			padding: 20px 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: #FFF;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 24px;	
+			text-transform: uppercase;
+			padding: 20px;
+		}
+
+		.header-right a:hover {
+			background-color: red;
+		}
+
+		.header-right {
+			float: right;
+		}
+
+		.logo {
+			font-weight: bold;
+		}
+
+		@media screen and (max-width: 700px) {
+			a {
+				display: block;
+				text-align: left;
+			}
+
+			.header-right {
+				float: none;
+			}
+		}
+	</style>
+</head>
+<body>
+<!-- Reference: https://www.w3schools.com/howto/howto_css_responsive_header.asp -->
+<header>
+	<a href="#" class="logo">Logo</a>
+	<div class="header-right">
+		<a href="#">Home</a>
+		<a href="#">Blog</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+	</div>
+
+</header>
+</body>
+</html>
