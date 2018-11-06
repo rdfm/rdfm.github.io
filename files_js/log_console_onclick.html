@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS: Log To Console With onclick Event</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<style type="text/css">
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+	</style>
+</head>
+<body>
+<button id="test">Click Me!</button>
+<p>Note: Check The Console!</p>
+
+<script>
+	// var test = document.getElementById('test');
+	// test.onclick = function(){
+	// 	console.log('Hello, World!');
+	// };
+	const test = document.getElementById('test');
+	test.onclick = () => { console.log('Hello, World!') };
+</script>
+</body>
+</html>
