@@ -92,12 +92,26 @@ function draw() {
     // Draw: Paddle.
     drawPaddle();
     
-    // Bouncing off the walls.
+    // Bouncing off the right and left walls.
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
-    if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
+
+    // Bouncing off the top and bottom.
+    if(y + dy < ballRadius) {
         dy = -dy;
+    }
+    // Implementing game over.
+    else if(y + dy > canvas.height-ballRadius) {
+        // Paddle hit the ball.
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); // Needed for Chrome to end game
+        }
     }
     
     // Paddle moving logic.
@@ -111,4 +125,4 @@ function draw() {
     x += dx;
     y += dy;
 }
-setInterval(draw, 10);
+var interval = setInterval(draw, 10);
