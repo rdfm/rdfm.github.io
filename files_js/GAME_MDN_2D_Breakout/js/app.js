@@ -1,3 +1,4 @@
+// Creating the canvas.
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
@@ -22,38 +23,51 @@ var ctx = canvas.getContext("2d");
 // ctx.stroke();
 // ctx.closePath();
 
+
+// Hold radius of drawn circle.
+var ballRadius = 10;
+
+// Ball starting point: Lower middle.
 var x = canvas.width/2;
 var y = canvas.height-30;
 
+// Moving ball effect: Add a small value to x and y after every frame has been drawn. 
 var dx = 2;
 var dy = -2;
 
-var ballRadius = 10;
+// Defining the paddle
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2;
 
-// BOUNCING OFF - TOP AND BOTTOM
-// if(y + dy < 0) {
-//     dy = -dy;
-// }
-// AND
-// if(y + dy > canvas.height) {
-//     dy = -dy;
-// }
 
-// COMBINED - BOUNCING OFF TOP AND BOTTOM
-// if(y + dy > canvas.height || y + dy < 0) {
-//     dy = -dy;
-// }
+// Control the paddle - variables, event listerns, and functions.
+var rightPressed = false;
+var leftPressed = false;
 
-// BOUNCING - BOUNCING OFF LEFT AND RIGHT
-// if(x + dx > canvas.width || x + dx < 0) {
-//     dx = -dx;
-// }
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
 
-// if(y + dy > canvas.height || y + dy < 0) {
-//     dy = -dy;
-// }
+function keyDownHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
 
-function drawBall(){
+function keyUpHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
+
+// Draw Ball function.
+function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
     ctx.fillStyle = "#0095DD";
@@ -61,26 +75,40 @@ function drawBall(){
     ctx.closePath();
 }
 
-function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
+// Draw Paddle function.
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
 
+// Defining a drawing loop.
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw: Ball.
+    drawBall(); 
+    // Draw: Paddle.
+    drawPaddle();
+    
+    // Bouncing off the walls.
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
     if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
-
+    
+    // Paddle moving logic.
+    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 7;
+    }
+    else if(leftPressed && paddleX > 0) {
+        paddleX -= 7;
+    }
+    
     x += dx;
     y += dy;
-};
+}
 setInterval(draw, 10);
-
-
-
-
-
-
-
-
