@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CSS: UI Hierarchy</title>
+    <style type="text/css">
+    /* Flat Design */
+    /* Flat - Container for the buttons */
+    #flat-container {
+        background: #E0E9EE;
+        border-radius: 5px;
+        display: flex;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    /* Flat - Button styles */
+    #flat-container button {
+        appearance: none;
+        border: 0;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 15px 20px;
+        width: 50%;
+    }
+
+    /* Flat - Sign up button */
+    #flat-container button:first-child {
+        background: #2FBC3D;
+        margin-right: 10px;
+    }
+
+    /* Flat - Log in button */
+    #flat-container button:last-child {
+        background: #459BCF;
+    }
+        
+    /* Proper UI Hierarchy */
+    /* Proper UI - Container for the buttons */
+    #ui-container {
+        background-image: linear-gradient(0deg, #BBC6CD 3%, #E2EBF0 100%);
+        border-radius: 5px;
+        border: 1px solid #8D8D8D;
+        box-shadow: 0 2px 4px 0 rgba(42,42,42,0.40), inset 0 1px 3px 0 rgba(255,255,255,0.50);
+        display: flex;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    /* Proper UI - Button styles */
+    #ui-container button {
+        appearance: none;
+        border: 0;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 15px 20px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.30);
+        width: 50%;
+    }
+
+    /* Proper UI - Sign up button */
+    #ui-container button:first-child {
+        /* Add: Subtle Gradient */
+        background-image: linear-gradient(-180deg, #1EB52A 0%, #0D941C 100%);
+        /* Add: More Depth and Light (box-shadow, text-shadow, and border properties) */
+        border: 1px solid #0C6B16;
+        box-shadow: 0 1px 5px 0 rgba(9,116,21,0.50), inset 0 1px 0 0 rgba(255,255,255,0.50), inset 0 2px 4px 0 rgba(255,255,255,0.50);
+        margin-right: 10px;
+    }
+
+    /* Proper UI - Log in button */
+    #ui-container button:last-child {
+        background-image: linear-gradient(-180deg, #489FD2 0%, #0A6DAC 100%);
+        border: 1px solid #0A486E;
+        box-shadow: 0 1px 5px 0 rgba(9,85,133,0.50), inset 0 1px 0 0 rgba(255,255,255,0.50), inset 0 2px 4px 0 rgba(255,255,255,0.50);
+    }    
+    </style>
+</head>
+<body>
+<!-- Reference: https://accssible.com/2019/02/05/proper-ui-hierarchy/ -->
+
+<div id="flat-container">
+        <button>Sign Up</button>
+        <button>Log in</button>
+</div>
+
+<br />
+
+<div id="ui-container">
+        <button>Sign Up</button>
+        <button>Log in</button>
+</div>
+
+</body>
+</html>
