@@ -74,11 +74,14 @@ for(var c=0; c<brickColumnCount; c++) {
 // Counting the score.
 var score = 0;
 
-// Control the paddle - event listeners.
+// Listen for Keypress -> Control the paddle - event listeners.
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-// Control the paddle - functions. =
+// Listen for mouse movement.
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+// Keypress -> Control the paddle - functions.
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
@@ -97,7 +100,15 @@ function keyUpHandler(e) {
     }
 }
 
-// Collision dectection function + updating status + updating score + winning status.
+// Mouse movement -> function.
+function mouseMoveHandler(e) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth/2;
+    }
+}
+
+// Collision dectection function + updating status + updating score + winning status. 
 function collisionDetection() {
     for(var c=0; c<brickColumnCount; c++) {
         for(var r=0; r<brickRowCount; r++) {
