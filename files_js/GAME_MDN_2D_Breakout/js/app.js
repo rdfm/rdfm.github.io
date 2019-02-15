@@ -74,6 +74,9 @@ for(var c=0; c<brickColumnCount; c++) {
 // Counting the score.
 var score = 0;
 
+// Player lives.
+var lives = 3;
+
 // Listen for Keypress -> Control the paddle - event listeners.
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -133,7 +136,8 @@ function collisionDetection() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#0095DD";
+    // ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000";
     ctx.fill();
     ctx.closePath();
 }
@@ -142,7 +146,8 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    // ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000";
     ctx.fill();
     ctx.closePath();
 }
@@ -158,7 +163,8 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                // ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "#000";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -169,8 +175,17 @@ function drawBricks() {
 // Draw the score function.
 function drawScore() {
     ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
+    // ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000";
     ctx.fillText("Score: "+score, 8, 20);
+}
+
+// Draw lives function.
+function drawLives() {
+    ctx.font = "16px Arial";
+    // ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000";
+    ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
 // Defining a drawing loop.
@@ -186,6 +201,8 @@ function draw() {
     collisionDetection();
     // Draw: Score.
     drawScore();
+    // Draw: Lives.
+    drawLives();
 
     // Bouncing off the right and left walls.
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
@@ -203,9 +220,23 @@ function draw() {
             dy = -dy;
         }
         else {
-            alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval); // Needed for Chrome to end game
+            // alert("GAME OVER");
+            // document.location.reload();
+            // clearInterval(interval); // Needed for Chrome to end game
+
+            lives--;
+            if(!lives) {
+                alert("GAME OVER");
+                document.location.reload();
+                // clearInterval(interval); // Needed for Chrome to end game
+            }
+            else {
+                x = canvas.width/2;
+                y = canvas.height-30;
+                dx = 2;
+                dy = -2;
+                paddleX = (canvas.width-paddleWidth)/2;
+            }            
         }
     }
     
@@ -219,5 +250,7 @@ function draw() {
     
     x += dx;
     y += dy;
+    requestAnimationFrame(draw);
 }
-var interval = setInterval(draw, 10);
+// var interval = setInterval(draw, 10);
+draw();
