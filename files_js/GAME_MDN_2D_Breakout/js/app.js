@@ -71,6 +71,9 @@ for(var c=0; c<brickColumnCount; c++) {
     }
 }
 
+// Counting the score.
+var score = 0;
+
 // Control the paddle - event listeners.
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -94,7 +97,7 @@ function keyUpHandler(e) {
     }
 }
 
-// Collision dectection function + updating status.
+// Collision dectection function + updating status + updating score + winning status.
 function collisionDetection() {
     for(var c=0; c<brickColumnCount; c++) {
         for(var r=0; r<brickRowCount; r++) {
@@ -103,6 +106,12 @@ function collisionDetection() {
                 if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
                     b.status = 0;
+                    score++;
+                    if(score == brickRowCount*brickColumnCount) {
+                        alert("YOU WIN, CONGRATULATIONS!");
+                        document.location.reload();
+                        clearInterval(interval); // Needed for Chrome to end game
+                    }
                 }
             }
         }
@@ -146,6 +155,13 @@ function drawBricks() {
     }
 }
 
+// Draw the score function.
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20);
+}
+
 // Defining a drawing loop.
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -155,9 +171,11 @@ function draw() {
     drawBall(); 
     // Draw: Paddle.
     drawPaddle();
-    // Draw: Collision Detection
+    // Draw: Collision Detection.
     collisionDetection();
-    
+    // Draw: Score.
+    drawScore();
+
     // Bouncing off the right and left walls.
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
