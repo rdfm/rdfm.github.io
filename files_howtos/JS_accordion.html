@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>How-To's(JavaScript): Accordion</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+		.accordion {
+			display: block;
+			cursor: pointer;
+			background-color: #000;
+			color: #FFF;
+			font-size: 2rem;
+			border: none;
+			width: 100%;
+			padding: 10px;
+			text-align: left;
+			margin-bottom: 5px;
+		}
+
+		.active, .accordion:hover {
+			background-color: #93A8AC;
+		}
+
+		.panel {
+			display: none;
+			padding: 0 20px;
+		}
+    </style>
+</head>
+<body>
+<!-- Reference:  -->
+<h1>JavaScript: Accordion</h1>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet luctus orci, sed scelerisque leo. Ut faucibus metus id rhoncus mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas dapibus placerat tortor, quis euismod ex tincidunt at. Nam rutrum orci nibh, quis venenatis nisi dignissim bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sapien venenatis risus venenatis gravida eget in leo.</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet luctus orci, sed scelerisque leo. Ut faucibus metus id rhoncus mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas dapibus placerat tortor, quis euismod ex tincidunt at. Nam rutrum orci nibh, quis venenatis nisi dignissim bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sapien venenatis risus venenatis gravida eget in leo.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet luctus orci, sed scelerisque leo. Ut faucibus metus id rhoncus mattis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas dapibus placerat tortor, quis euismod ex tincidunt at. Nam rutrum orci nibh, quis venenatis nisi dignissim bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sapien venenatis risus venenatis gravida eget in leo.</p>
+</div>
+
+<script>
+	let acc = document.getElementsByClassName("accordion");
+
+	for(let i = 0; i < acc.length; i++){
+		acc[i].addEventListener("click", function(){ 
+			this.classList.toggle("active");
+
+			let panel = this.nextElementSibling;
+			if  (panel.style.display === "block" ){
+				panel.style.display = "none";
+			} else {
+				panel.style.display = "block";
+			}
+		});
+	}
+</script>
+
+</body>
+</html>
