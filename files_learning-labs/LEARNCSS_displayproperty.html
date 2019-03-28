@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Learn CSS: the "display" property</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            line-height 1.5em;
+        }
+
+        p {
+            margin: 1em 0;
+        }
+
+        .block {
+            border: solid #6AC5AC 3px;
+            position: relative;
+        }
+
+        .block p {
+            padding: 1em;
+        }
+
+        .label, 
+        .endlabel {
+            background-color: #6AC5AC; 
+            position: absolute;
+            line-height: 1em;
+        }
+
+        .label {
+            top: 0;
+            left: 0;
+            padding: 0 3px 3px 0;
+        }
+
+        .endlabel {
+            bottom: 0;
+            right: 0;
+            padding: 3px 0 0 3px;
+        }
+
+        .inline {
+            border: solid #6AC5AC 3px;
+            position: relative;
+        }
+
+        .inline .label,
+        .inline .endlabel {
+            position: static;
+        }
+
+    </style>
+</head>
+<body>
+<!-- Reference: http://learnlayout.com/display.html -->
+
+<h1>CSS: the "display" property</h1>
+<ul>   
+    <li>Every element has a default display value (depending on type of element).</li>
+    <li>Default for most elements is block or inline.</li>
+    <li>Block element, most often called "block-level element"</li>
+    <li>Inline element, just called "inline element"</li>
+</ul>
+
+<hr>
+
+<h2>display: block</h2> 
+<div class="block">
+    <span class="label">&lt;div&gt;</span>
+    <p><code>&lt;div&gt;</code> is the standard block-level element. A block-level element starts on a new line and stretches out to the left and right as far as it can.</p>
+    <span class="endlabel">&lt;&sol;div&gt;</span>
+</div>
+
+<p>Common block-level elements:</p>
+<ul>
+    <li><code>&lt;div&gt;, &lt;hr&gt;</code></li>
+    <li><code>&lt;p&gt;, &lt;pre&gt;, &lt;address&gt;, &lt;blockqoute&gt;</code></li>
+    <li><code>&lt;h1&gt; ... &lt;h6&gt;</code></li>
+    <li><code>&lt;ol&gt;, &lt;ul&gt;</code></li>
+    <li><code>&lt;form&gt;, &lt;table&gt;</code></li>
+    <li><code>&lt;header&gt;, &lt;section&gt;, &lt;article&gt;, &lt;main&gt;, &lt;footer&gt;</code></li>
+</ul>
+
+<hr>
+
+<h2>display: inline-block</h2>
+<p><code>&lt;span&gt;</code> is the standard inline element. 
+An inline element can wrap some text inside a paragraph
+<span class="inline">
+    <span class="label">&lt;span&gt;</span>
+    like this
+    <span class="endlabel">&lt;/span&gt; </span>
+</span>
+without disrupting the flow of that paragraph. 
+The a element is the most common inline element, 
+since you use them for links.
+</p>
+
+<p>Common inline elements:</p>
+<ul>
+    <li><code>&lt;b&gt;, &lt;big&gt;, &lt;i&gt;, &lt;small&gt;</code></li>
+    <li><code>&lt;abbr&gt;, &lt;acronym&gt;, &lt;cite&gt;, &lt;code&gt;, &lt;em&gt;, &lt;strong&gt;</code></li>
+    <li><code>&lt;a&gt;, &lt;br&gt;, &lt;img&gt;, &lt;span&gt;</code></li>
+    <li><code>&lt;button&gt;, &lt;input&gt;, &lt;label&gt;, &lt;textarea&gt;</code></li>
+</ul>
+
+<hr>
+
+<h2>display: none</h2>
+<ul>
+    <li>Common display value is <code>display: none;</code></li>
+    <li>Some specialized elements such as script use this as their default.</li>
+    <li>Commonly used with JavaScript to hide and show elements without really deleting and recreating them.</li>
+    <li>Different from <code>visibility</code>, which hides the element, but still takes up space.</li>
+    <li>Setting <code>display: none;</code> render page as element does not exist.</li>
+</ul>
+
+</body>
+</html>
