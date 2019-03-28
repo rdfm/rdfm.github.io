@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>How-To's(JavaScript): Display A Clock</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        #clock {
+            background-color: #000;
+            color: #FFF;
+            font-size: 6em;
+            font-weight: bold;
+            padding: 14px 0 0 17px;
+        }
+
+        #today {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 3em;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body onload="displayClock()">
+<!-- Reference: https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock -->
+<!-- Reference: https://codepen.io/afarrar/pen/JRaEjP?editors=0010 -->
+
+<h1>JavaScript: Display A Clock</h1>
+<br />
+<div id="clock"></div>
+<div id="today"></div>
+
+<script>
+    let displayDate = () => {
+        let today = new Date();
+        document.getElementById('today').textContent = today.toDateString();
+    }
+    displayDate();
+
+    let displayClock = () => {
+        let date = new Date();
+
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+
+        let period = "AM";
+
+        if(hours == 0){ hours = 12 };
+        if(hours > 12){ 
+            hours = hours - 12;
+            period = "PM";
+        };
+
+        hours = checkTime(hours);
+        minutes = checkTime(minutes);
+        seconds = checkTime(seconds);
+
+        let time = `${hours}:${minutes}:${seconds} ${period}`;
+        document.getElementById('clock').textContent = time;
+        // document.getElementById('clock').innerText = time;
+
+        setTimeout(displayClock, 1000);
+    }
+
+    // Add zero in front of nubmers < 10.
+    let checkTime = (i) => {
+        if (i < 10){ i = "0" + i };
+        return i;
+    }
+</script>
+
+</body>
+
+</html>
