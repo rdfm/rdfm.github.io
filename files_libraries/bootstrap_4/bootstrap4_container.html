@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <style>
+        .con-flu {
+            background-color: #CCC;
+            padding: 30px 0;
+        }
+
+        .con {
+            background-color: #808080;
+            padding: 30px;
+        }
+
+        .col {
+            background-color: #000;
+            color: #FFF;
+            border: 1px solid #FFF;
+        }
+
+        .box {
+            height: 3rem;
+            width: 3rem; 
+            background-color: #08a2c4;
+        }        
+    </style>
+
+    <title>Bootstrap 4: Container</title>
+    <!-- REFERENCE: https://getbootstrap.com/docs/4.3/layout/overview/#containers -->
+  </head>
+  <body>
+    <h1>Containers</h1>
+    <p><strong>.container</strong>: max-width changes at each breakpoint</p>
+    <p><strong>.container-fluid</strong>: 100% wide all the time</p>
+
+    <hr>
+
+    <div class="container-fluid con-flu">
+        <h1>Container-fluid</h1>
+    </div>
+        
+    <div class="container con">
+        <h1>Container</h1>
+    </div>
+        
+    <hr>
+        
+    <div class="container-fluid con-flu">
+        <h1>Container-fluid</h1>
+        <div class="row">
+            <div class="col">1</div>
+            <div class="col">2</div>
+            <div class="col">3</div>
+        </div>
+    </div>
+    
+    <div class="container con">
+        <h1>Container</h1>
+        <div class="row">
+            <div class="col">1</div>
+            <div class="col">2</div>
+            <div class="col">3</div>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="container-fluid con-flu">
+        <h2>Container-fluid</h2>
+        <div class="container con">
+            <h2>Container</h2>
+            <div class="row">
+                <div class="col">1</div>
+                <div class="col">2</div>
+                <div class="col">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
