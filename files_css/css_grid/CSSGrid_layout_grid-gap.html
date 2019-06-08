@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CSS Grid: </title>
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+            font-family: helvetica, arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+        }
+        *,*:before,*:after {
+            box-sizing: inherit;
+        }
+        .container {
+            margin: 0;
+        }
+        .container > * {
+            border: 2px solid #000;
+            background-color: #B7E1DD;
+            padding: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-areas: 
+                "header"
+                "content"
+                "related"
+                "ads"
+                "footer";
+        }
+        .main-header {
+            grid-area: header;
+        }
+        .main-content {
+            grid-area: content;
+        }
+        .related-links {
+            grid-area: related;
+        }
+        .ads {
+            grid-area: ads; 
+        }
+        .main-footer {
+            grid-area: footer;
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-areas: 
+                "header header header"
+                "content content related"
+                "content content ads"
+                "footer footer footer";
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-areas:
+                "header header header header"
+                "related content content ads"
+                "footer footer footer footer";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">Header</header>
+        <article class="main-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Leo urna molestie at elementum eu facilisis sed odio. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere. 
+            Interdum posuere lorem ipsum dolor sit amet. Vitae auctor eu augue ut lectus arcu bibendum. Sagittis aliquam malesuada bibendum 
+            arcu vitae elementum curabitur. Massa ultricies mi quis hendrerit dolor magna eget. Sed enim ut sem viverra aliquet eget sit 
+            amet tellus. Non nisi est sit amet facilisis magna etiam tempor orci. Pulvinar neque laoreet suspendisse interdum consectetur 
+            libero. Amet venenatis urna cursus eget. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus. Nibh tellus 
+            molestie nunc non.
+        </article>
+        <aside class="related-links">Related links</aside>
+        <aside class="ads">Ads</aside>
+        <footer class="main-footer">Footer</footer>
+    </div>
+</body>
+</html>
