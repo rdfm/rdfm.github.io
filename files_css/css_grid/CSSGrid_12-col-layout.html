@@ -4,10 +4,130 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>CSS Grid: 12 Column Layout</title>
-	<style type="text/css">
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+        }
+        *,*:before,*:after {
+            box-sizing: inherit;
+        }
+        .container > * {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-gap: 10px;
+        }
+
+        .container > * {
+            grid-column: 1 / span 12;
+        }
+
+        @media (min-width: 575.98px) {
+            nav ul {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .links {
+                grid-column: 1 / span 3;
+                grid-row: 3;
+            }
+
+            .content {
+                grid-column: 4 / span 9;
+                grid-row: 3;
+            }
+
+            .ads {
+                grid-column: 1 / span 3;
+                grid-row: 4;
+            }
+
+            .footer {
+                grid-column: 4 / span 9;
+                grid-row: 4;
+            }
+
+            /* 
+            Shortend:
+
+            .content, .footer {
+                grid-column: 4 / span 9;
+            }
+             */
+
+
+        }
+
+        @media (min-width: 991.98px) {
+            .links {
+                grid-column: 1 / span 2;
+            }
+
+            .content {
+                grid-column: 3 / span 7;
+            }
+
+            .ads {
+                grid-column: 10 / span 3;
+                grid-row: 3;
+            }
+
+            .footer {
+                grid-column: 1 / span 12;
+            }
+        }
+
+        .container {
+            max-width: 1200;
+        }
+
     </style>
 </head>
 <body>
+    <div class="container">
+        <header class="header">The header</header>
 
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">One</a></li>
+                <li><a href="#">Two</a></li>
+                <li><a href="#">Three</a></li>                
+                <li><a href="#">Four</a></li>
+                <li><a href="#">Five</a></li>            
+            </ul>
+        </nav>
+
+        <article class="content">
+            <h1>Main content</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer. Quisque sagittis purus 
+                sit amet. Ornare quam viverra orci sagittis eu volutpat odio facilisis mauris. Id faucibus 
+                nisl tincidunt eget nullam non nisi. Sit amet risus nullam eget felis eget nunc lobortis 
+                mattis. In hac habitasse platea dictumst vestibulum rhoncus. Dui accumsan sit amet nulla 
+                facilisi morbi tempus iaculis urna. A scelerisque purus semper eget duis at. Lorem ipsum dolor 
+                sit amet consectetur adipiscing. Mattis pellentesque id nibh tortor id aliquet. Est ullamcorper 
+                eget nulla facilisi etiam dignissim diam quis.
+            </p>
+        </article> 
+        <aside class="links">Links</aside>
+        <aside class="ads">Ads</aside>
+        <footer class="footer">The footer</footer>
+    </div>
 </body>
 </html>
