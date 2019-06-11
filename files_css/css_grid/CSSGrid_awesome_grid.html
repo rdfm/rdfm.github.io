@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CSS Grid: Awesome Grid</title>
+ 	<link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        body {
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 1rem;
+        }
+        .grid > div {
+            background: #8B8D73;
+            padding: 1.5rem;
+        }
+        body {
+            margin: 1rem;
+            font: 12px system-ui;
+        }
+    </style>
+</head>
+<body>
+<!-- Reference: https://codepen.io/chriscoyier/pen/ecff0af160b3fd32cf67841b1eb6cfc3/ -->
+
+    <div class="grid">
+        <div>A</div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et ultrices neque ornare aenean euismod elementum.</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+        <div>F</div>
+        <div>Non quam lacus suspendisse faucibus. Et netus et malesuada fames ac turpis egestas sed. Purus sit amet volutpat consequat mauris. In iaculis nunc sed augue lacus viverra vitae.</div>
+        <div>H</div>
+        <div>I</div>
+        <div>J</div>
+        <div>K</div>
+        <div>Et ligula ullamcorper malesuada proin libero nunc. Sapien et ligula ullamcorper malesuada proin. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl.</div>
+    </div>
+
+</body>
+</html>

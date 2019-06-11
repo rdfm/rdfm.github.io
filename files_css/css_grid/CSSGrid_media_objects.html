@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CSS Grid: Media Objects</title>
+    <style type="text/css">
+        *,
+        *:before,
+        *:after {
+        box-sizing: border-box;
+        }
+
+        body {
+        margin: 40px;
+        font-family: 'Open Sans', 'sans-serif';
+        background-color: #fff;
+        color: #444;
+        }
+
+        img {
+        max-width: 100%;
+        }
+
+        h1,
+        p {
+        margin: 0 0 1em 0;
+        }
+
+        .media {
+        display: grid;
+        grid-column-gap: 1rem;
+        grid-template-areas:
+        "title"
+        "img"
+        "content"
+        "footer";
+        margin-bottom: 2rem;
+        border: 2px solid #000;
+        padding: 1rem;
+        }
+
+        .media > .title { grid-area: title; }
+        .media > .img { grid-area: img; }
+        .media > .content { grid-area: content; }
+        .media > .footer { grid-area: footer; }
+
+        @media (min-width: 576px) {
+            .media > * {
+                margin: 0;
+            }
+
+            .media > .img { 
+                width: auto;
+                margin: 0;
+            }
+
+            .media > .footer {
+                background-color: #eee;
+                padding: 1rem;
+            }
+
+            .media:after {
+                content: none;
+            }
+
+            .media {
+                grid-template-columns: 150px 3fr;
+                grid-template-rows: auto 1fr auto;
+                grid-template-areas:
+                    "img title"
+                    "img content"
+                    "footer footer";       
+            }
+
+            .media.media-flip {
+                grid-template-columns: 3fr 150px ;
+                grid-template-areas:
+                    "title img"
+                    "content img"
+                    "footer footer";        
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Refrence: https://codepen.io/rachelandrew/pen/zwMZVy/ -->
+
+<div class="media">
+    <div class="img">
+        <img src="http://placehold.it/250x250" alt="Placeholder">
+    </div>
+    <h2 class="title">This is my title</h2>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.
+        Praesent quis risus id dolor venenatis condimentum.</p>
+    </div>
+    <div class="footer">
+        An optional footer goes here.
+    </div>
+</div>
+
+<div class="media media-flip">
+        <div class="img">
+            <img src="http://placehold.it/250x250" alt="Placeholder">
+        </div>
+        <h2 class="title">This is my title</h2>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.
+            Praesent quis risus id dolor venenatis condimentum.</p>
+        </div>
+        <div class="footer">
+            An optional footer goes here.
+        </div>
+    </div>
+
+</body>
+</html>
