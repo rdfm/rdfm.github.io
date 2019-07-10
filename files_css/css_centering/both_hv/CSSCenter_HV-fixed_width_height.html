@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>CSS Centering: Horizontally + Vertically (Element of fixed width and height)</title>
+    <style type="text/css">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .parent {
+            position: relative;
+            background-color: #5CD166;
+            height: 200px;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .child {
+            background-color: #C3EA0A;
+            width: 300px;
+            height: 100px;
+            padding: 20px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            margin: -70px 0 0 -170px;
+
+        }    
+    /*  Using negative margins equal to half of that width and height, after you've absolutely positioned it at 50% / 50% */
+    </style>
+</head>
+<body>
+    <h1>CSS Centering: Horizontally + Vertically</h1>
+    <h2>(Element of fixed width and height)</h2>
+
+    <div class="parent">
+        <div class="child">I'm a block-level element a fixed height and width, centered vertically within my parent.</div>
+    </div>
+
+</body>
+</html>
